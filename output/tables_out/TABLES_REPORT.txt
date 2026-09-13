@@ -1,0 +1,111 @@
+MANUSCRIPT TABLE REGENERATION REPORT
+mode = UNCALIBRATED PRIMARY (Table 2)
+sequences=7156 positives=1514 (21.16%)
+======================================================================
+TABLE 1 -- Feature discriminability (deterministic; no model)
+    Feature                   Meaning  Prec_mean  Backg_mean   p_value      r
+          b               G-R b-value     0.8065      0.7502  6.55e-10  0.090
+          a               G-R a-value     4.5063      4.2312  1.96e-13  0.101
+  CBS_accel  Benioff-strain convexity     0.0568      0.0144  9.21e-30  0.122
+alpha_micro   Arrival-curve convexity     0.0540      0.0250  7.94e-32  0.115
+   sigma_z2     Depth variance (km^2)   360.1136   1035.2030  0.00e+00 -0.465
+     mean_z     Mean focal depth (km)    28.0611     44.6581 1.24e-302 -0.465
+        rho Spatial density (ev/km^2)     0.0019      0.0000  0.00e+00  0.365
+    H_space           Spatial entropy     1.1236      1.2130  9.22e-06 -0.136
+     mean_M            Mean magnitude     4.5363      4.4968  2.21e-08  0.093
+      M_max  Max-minus-mean magnitude     0.9130      0.9754  2.44e-10 -0.056
+     lambda        Event rate (1/day)    37.5502      0.5476  0.00e+00  0.420
+    mean_dt Mean inter-event time (d)     0.9130      3.1528  0.00e+00 -0.393
+       CV_t   Robust dispersion of dt     2.2326      3.2717  1.33e-15 -0.032
+
+TABLE 2 -- Global discrimination & Pareto-knee operating points
+                  OOF_sequences prevalence ROC_AUC  PR_AUC   Brier theta_star  Recall Precision     FAR      F1        TP_FN_FP_TN
+ProtocolB_primary          5190      0.249  0.8946  0.8407  0.0888     0.2458  0.7975    0.7467  0.0898  0.7713  1032/262/350/3546
+ProtocolA_full             6500      0.213  0.8712  0.8063  0.0791     0.1856  0.7489    0.6261  0.1208   0.682  1035/347/618/4500
+
+TABLE 3 -- Per-fold performance at theta*=0.2458 (Protocol B)
+ Fold  n_train  Test_pos  Recall  Precision   FAR    F1  under_trained
+    1      506        20   0.000      0.000 0.006 0.000           True
+    2     1025       399   0.947      0.900 0.350 0.923           True
+    3     1544       194   0.835      0.790 0.132 0.812           True
+    4     2063        93   0.978      0.664 0.108 0.791           True
+    5     2582       104   0.837      0.554 0.169 0.667          False
+    6     3101        45   0.156      0.280 0.038 0.200          False
+    7     3620       164   0.970      0.841 0.085 0.901          False
+    8     4139        52   0.096      0.125 0.075 0.109          False
+    9     4658        87   0.609      0.624 0.074 0.616          False
+   10     5177       136   0.662      0.744 0.081 0.700          False
+
+TABLE 4 -- Alert configurations (Protocol B)
+                            Config  Recall  Precision   FAR    F1
+                     RF theta=0.50   0.593      0.899 0.022 0.714
+          Pareto-knee theta*=0.246   0.798      0.747 0.090 0.771
+                  G1 hard AND gate   0.540      0.803 0.044 0.646
+G2 confidence-band (knee-selected)   0.798      0.747 0.090 0.771
+        G3 fuzzy T-norm (g*=0.438)   0.770      0.658 0.133 0.710
+
+TABLE 5 -- Model comparison, clustering benchmark & ablations (Protocol B)
+                               Model  ROC_AUC  PR_AUC Knee_recall Knee_FAR
+     Random forest (3-seed, primary)   0.8946  0.8407       0.798     0.09
+                 Logistic regression   0.8930  0.8626       0.814     0.09
+      Single-feature lambda baseline   0.9006  0.8640           --        --
+                    RF + LR ensemble   0.9012  0.8759       0.825    0.101
+Omori persistence kernel (benchmark)   0.9342  0.8911       0.868     0.086
+            Rank ensemble RF + Omori   0.9322  0.9029           --        --
+     RF with probability calibration   0.8743  0.7827       0.787     0.129
+        RF without embargo (gap = 0)   0.8967  0.8447           --        --
+
+   stratified: RF ROC low-cluster=0.5053  high-cluster=0.9126
+
+TABLE 6 -- Character of each Protocol B test window
+ Fold  pos_depth_km  pos_lambda pos_rho  RF_recall  Omori_recall
+    1          36.7         4.6 1.6e-02      0.000         0.650
+    2          31.0        15.8 8.7e-05      0.947         0.965
+    3          23.6        80.6 2.3e-03      0.835         0.856
+    4          13.6        53.7 1.8e-03      0.978         0.978
+    5          25.9        20.0 4.4e-03      0.837         0.817
+    6          44.0         0.6 1.4e-05      0.156         0.178
+    7          12.6       104.1 2.9e-03      0.970         0.951
+    8          38.2         0.5 1.2e-05      0.096         0.096
+    9          23.2        28.4 3.7e-03      0.609         0.632
+   10          22.0        41.9 1.5e-03      0.662         0.713
+
+TABLE 8 -- Outcome taxonomy, all 2373 Mw>=4.5 events
+       Stratum    n  Alerted  Covered_sub  No_coverage  Cond_detection
+    All events 2373     18.6          3.6         77.8            83.8
+    Mw 4.5-4.9 1796     18.9          3.7         77.3            83.5
+    Mw 5.0-5.4  431     19.3          2.8         78.0            87.4
+    Mw 5.5-5.9  109     11.9          3.7         84.4            76.5
+       Mw 6.0+   37     13.5          5.4         81.1            71.4
+  Depth <35 km 1545     26.7          1.7         71.5            93.9
+Depth 35-70 km  471      5.9          5.7         88.3            50.9
+  Depth >70 km  357      0.0          8.7         91.3             0.0
+
+TABLE 7 -- Event case studies, 26 Mw>=6.2 mainshocks (20 with no local sequence)
+      date  mag  depth_km  seq_60d  seq_15d  max_score_15d alerted           outcome
+2025-03-28  7.7      10.0        0        0            NaN       -- no local sequence
+2009-08-10  7.5      24.0        0        0            NaN       -- no local sequence
+2015-05-12  7.3      15.0       87       13          0.997    100%           alerted
+2025-01-07  7.1      10.0        0        0            NaN       -- no local sequence
+2011-09-18  6.9      50.0        0        0            NaN       -- no local sequence
+2016-04-13  6.9     136.0        0        0            NaN       -- no local sequence
+2016-08-24  6.8      82.0        6        5          0.124      0%            missed
+2012-11-11  6.8      14.0        0        0            NaN       -- no local sequence
+2015-04-26  6.7      23.0       56       56          1.000    100%           alerted
+2025-03-28  6.7      10.0        0        0            NaN       -- no local sequence
+2016-01-03  6.7      55.0        0        0            NaN       -- no local sequence
+2003-09-21  6.6      10.0        0        0            NaN       -- no local sequence
+2010-03-30  6.6      34.0        0        0            NaN       -- no local sequence
+2008-06-27  6.6      17.0        0        0            NaN       -- no local sequence
+2002-09-13  6.5      21.0        0        0            NaN       -- no local sequence
+2010-05-31  6.5     112.0        0        0            NaN       -- no local sequence
+2017-11-17  6.4       8.0        0        0            NaN       -- no local sequence
+2000-06-07  6.3      33.0        0        0            NaN       -- no local sequence
+2004-12-26  6.3      26.0        2        2          0.187      0%            missed
+2015-05-12  6.3      15.0       92       18          0.997    100%           alerted
+2008-10-06  6.3      12.0        0        0            NaN       -- no local sequence
+2004-12-26  6.2      13.0        5        5          0.308    100%           alerted
+2008-08-10  6.2      20.0       87        0            NaN       -- no local sequence
+2006-12-22  6.2      24.0        0        0            NaN       -- no local sequence
+2011-02-04  6.2      85.0        0        0            NaN       -- no local sequence
+2021-11-25  6.2      43.0        3        0            NaN       -- no local sequence
