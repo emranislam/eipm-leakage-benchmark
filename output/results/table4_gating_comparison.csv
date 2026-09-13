@@ -1,0 +1,4 @@
+Configuration,TP,FP,TN,FN,Recall,Precision,FAR,F1,FAR_Reduction_%
+RF Only (theta=0.50),851,90,5028,531,0.6158,0.9044,0.0176,0.7327,--
+RF + NSGA-II (theta*=0.1954),1020,508,4610,362,0.7381,0.6675,0.0993,0.701,--
+Full Hybrid (NSGA-II + Gating),695,209,4909,687,0.5029,0.7688,0.0408,0.608,58.9%
