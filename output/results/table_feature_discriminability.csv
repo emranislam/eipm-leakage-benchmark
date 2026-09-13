@@ -1,0 +1,14 @@
+Feature,Meaning,Prec_mean,Backg_mean,p_value,r
+b,G-R b-value,0.8065,0.7502,6.55e-10,0.09
+a,G-R a-value,4.5063,4.2312,1.96e-13,0.101
+CBS_accel,Benioff-strain convexity,0.0568,0.0144,9.21e-30,0.122
+alpha_micro,Arrival-curve convexity,0.054,0.025,7.94e-32,0.115
+sigma_z2,Depth variance (km^2),360.1136,1035.203,0.00e+00,-0.465
+mean_z,Mean focal depth (km),28.0611,44.6581,1.24e-302,-0.465
+rho,Spatial density (ev/km^2),0.0019,0.0,0.00e+00,0.365
+H_space,Spatial entropy,1.1236,1.213,9.22e-06,-0.136
+mean_M,Mean magnitude,4.5363,4.4968,2.21e-08,0.093
+M_max,Max-minus-mean magnitude,0.913,0.9754,2.44e-10,-0.056
+lambda,Event rate (1/day),37.5502,0.5476,0.00e+00,0.42
+mean_dt,Mean inter-event time (d),0.913,3.1528,0.00e+00,-0.393
+CV_t,Robust dispersion of dt,2.2326,3.2717,1.33e-15,-0.032
