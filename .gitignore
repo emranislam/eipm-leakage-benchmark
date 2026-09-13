@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project data (kept local-only; see data/raw/usgs_catalog_manifest.json for provenance/checksums)
+data/raw/*.csv
+scripts/data/
