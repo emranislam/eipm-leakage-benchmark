@@ -1,0 +1,6 @@
+Config,Recall,Precision,FAR,F1
+RF theta=0.50,0.593,0.899,0.022,0.714
+Pareto-knee theta*=0.246,0.798,0.747,0.09,0.771
+G1 hard AND gate,0.54,0.803,0.044,0.646
+G2 confidence-band (knee-selected),0.798,0.747,0.09,0.771
+G3 fuzzy T-norm (g*=0.438),0.77,0.658,0.133,0.71
