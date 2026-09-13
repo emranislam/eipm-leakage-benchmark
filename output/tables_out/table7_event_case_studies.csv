@@ -1,0 +1,27 @@
+date,mag,depth_km,seq_60d,seq_15d,max_score_15d,alerted,outcome
+2025-03-28,7.7,10.0,0,0,,--,no local sequence
+2009-08-10,7.5,24.0,0,0,,--,no local sequence
+2015-05-12,7.3,15.0,87,13,0.997,100%,alerted
+2025-01-07,7.1,10.0,0,0,,--,no local sequence
+2011-09-18,6.9,50.0,0,0,,--,no local sequence
+2016-04-13,6.9,136.0,0,0,,--,no local sequence
+2016-08-24,6.8,82.0,6,5,0.124,0%,missed
+2012-11-11,6.8,14.0,0,0,,--,no local sequence
+2015-04-26,6.7,23.0,56,56,1.0,100%,alerted
+2025-03-28,6.7,10.0,0,0,,--,no local sequence
+2016-01-03,6.7,55.0,0,0,,--,no local sequence
+2003-09-21,6.6,10.0,0,0,,--,no local sequence
+2010-03-30,6.6,34.0,0,0,,--,no local sequence
+2008-06-27,6.6,17.0,0,0,,--,no local sequence
+2002-09-13,6.5,21.0,0,0,,--,no local sequence
+2010-05-31,6.5,112.0,0,0,,--,no local sequence
+2017-11-17,6.4,8.0,0,0,,--,no local sequence
+2000-06-07,6.3,33.0,0,0,,--,no local sequence
+2004-12-26,6.3,26.0,2,2,0.187,0%,missed
+2015-05-12,6.3,15.0,92,18,0.997,100%,alerted
+2008-10-06,6.3,12.0,0,0,,--,no local sequence
+2004-12-26,6.2,13.0,5,5,0.308,100%,alerted
+2008-08-10,6.2,20.0,87,0,,--,no local sequence
+2006-12-22,6.2,24.0,0,0,,--,no local sequence
+2011-02-04,6.2,85.0,0,0,,--,no local sequence
+2021-11-25,6.2,43.0,3,0,,--,no local sequence
